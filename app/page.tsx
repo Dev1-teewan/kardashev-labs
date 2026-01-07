@@ -1,5 +1,6 @@
 import { Navigation } from "@/components/navigation";
 import { HeroSection } from "@/components/hero-section";
+import { SynergyReactorSection } from "@/components/synergy-reactor-section";
 import { TeeWanScale } from "@/components/teewan-scale";
 import { Portfolio } from "@/components/portfolio";
 import { ResearchTerminal } from "@/components/research-terminal";
@@ -43,6 +44,7 @@ export default function Home() {
 
       <Navigation />
       <HeroSection />
+      <SynergyReactorSection />
       {/* <TeeWanScale /> */}
       <Portfolio />
       <ResearchTerminal />

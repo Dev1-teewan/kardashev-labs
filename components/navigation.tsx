@@ -15,7 +15,12 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItems = ["Overview", "Scale", "Portfolio", "Research"];
+  const navItems = [
+    { label: "Overview", href: "#overview" },
+    { label: "Synergy", href: "#synergy" },
+    { label: "Portfolio", href: "#portfolio" },
+    { label: "Research", href: "#research" },
+  ];
 
   return (
     <motion.nav
@@ -50,11 +55,11 @@ export function Navigation() {
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
+                key={item.label}
+                href={item.href}
                 className="text-sm text-white/50 hover:text-white/90 transition-colors duration-300 font-mono tracking-wide"
               >
-                {item}
+                {item.label}
               </a>
             ))}
           </div>
@@ -96,12 +101,12 @@ export function Navigation() {
             <div className="flex flex-col gap-4">
               {navItems.map((item) => (
                 <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
+                  key={item.label}
+                  href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className="text-sm text-white/70 hover:text-white transition-colors font-mono"
                 >
-                  {item}
+                  {item.label}
                 </a>
               ))}
               <div className="flex items-center gap-2 pt-4 border-t border-white/10">

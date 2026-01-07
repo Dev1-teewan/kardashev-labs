@@ -9,7 +9,8 @@ const projects = [
     name: "Swarm Ops (Autonomous Agentic Layer)",
     specs: {
       LOGIC: "Autonomous LLM orchestration for multi-agent coordination.",
-      STATUS: "EthDenver 2025 Coinbase's SDK Winner - Infrastructure & Tooling.",
+      STATUS:
+        "EthDenver 2025 Coinbase's SDK Winner - Infrastructure & Tooling.",
       CAPACITY: "High-frequency on-chain interaction management.",
     },
     tags: ["AI_AGENTS", "ETHDENVER_WINNER", "AGENTIC_OPS"],
