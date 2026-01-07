@@ -1,9 +1,9 @@
-import { Navigation } from "@/components/navigation"
-import { HeroSection } from "@/components/hero-section"
-import { TeeWanScale } from "@/components/teewan-scale"
-import { Portfolio } from "@/components/portfolio"
-import { ResearchTerminal } from "@/components/research-terminal"
-import { Footer } from "@/components/footer"
+import { Navigation } from "@/components/navigation";
+import { HeroSection } from "@/components/hero-section";
+import { TeeWanScale } from "@/components/teewan-scale";
+import { Portfolio } from "@/components/portfolio";
+import { ResearchTerminal } from "@/components/research-terminal";
+import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
@@ -43,10 +43,10 @@ export default function Home() {
 
       <Navigation />
       <HeroSection />
-      <TeeWanScale />
+      {/* <TeeWanScale /> */}
       <Portfolio />
       <ResearchTerminal />
       <Footer />
     </main>
-  )
+  );
 }

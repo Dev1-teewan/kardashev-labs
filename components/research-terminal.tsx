@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
-import { Terminal, Circle } from "lucide-react"
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Terminal, Circle } from "lucide-react";
 
 const researchTopics = [
   "[RESEARCH] Privacy-preserving execution layers",
@@ -13,40 +13,40 @@ const researchTopics = [
   "[STUDY] Zero-knowledge proof applications",
   "[RESEARCH] Autonomous market making",
   "[ANALYSIS] Multi-sig orchestration patterns",
-]
+];
 
 export function ResearchTerminal() {
-  const [logs, setLogs] = useState<string[]>([])
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [currentTime, setCurrentTime] = useState<string>("00:00:00")
+  const [logs, setLogs] = useState<string[]>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentTime, setCurrentTime] = useState<string>("00:00:00");
 
   useEffect(() => {
     const interval = setInterval(() => {
       setLogs((prev) => {
-        const newLogs = [...prev, researchTopics[currentIndex]]
-        if (newLogs.length > 6) newLogs.shift()
-        return newLogs
-      })
-      setCurrentIndex((prev) => (prev + 1) % researchTopics.length)
-    }, 3000)
+        const newLogs = [...prev, researchTopics[currentIndex]];
+        if (newLogs.length > 6) newLogs.shift();
+        return newLogs;
+      });
+      setCurrentIndex((prev) => (prev + 1) % researchTopics.length);
+    }, 3000);
 
-    return () => clearInterval(interval)
-  }, [currentIndex])
+    return () => clearInterval(interval);
+  }, [currentIndex]);
 
   // Initialize with first few logs
   useEffect(() => {
-    setLogs(researchTopics.slice(0, 3))
-  }, [])
+    setLogs(researchTopics.slice(0, 3));
+  }, []);
 
   // Update time on client side only
   useEffect(() => {
     const updateTime = () => {
-      setCurrentTime(new Date().toISOString().slice(11, 19))
-    }
-    updateTime()
-    const timeInterval = setInterval(updateTime, 1000)
-    return () => clearInterval(timeInterval)
-  }, [])
+      setCurrentTime(new Date().toISOString().slice(11, 19));
+    };
+    updateTime();
+    const timeInterval = setInterval(updateTime, 1000);
+    return () => clearInterval(timeInterval);
+  }, []);
 
   return (
     <section id="research" className="relative py-32">
@@ -61,7 +61,9 @@ export function ResearchTerminal() {
           <span className="inline-block px-4 py-2 mb-6 text-xs font-mono text-white/50 tracking-widest border border-white/10 rounded-full">
             RESEARCH LAB
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white">Active Research Terminal</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white">
+            Active Research Terminal
+          </h2>
         </motion.div>
 
         {/* Terminal Window */}
@@ -82,15 +84,22 @@ export function ResearchTerminal() {
               </div>
               <div className="flex items-center gap-2">
                 <Terminal size={14} className="text-white/30" />
-                <span className="text-xs font-mono text-white/30">kardashev-research-v1.0</span>
+                <span className="text-xs font-mono text-white/30">
+                  kardashev-research-v1.0
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <motion.div
                   animate={{ opacity: [1, 0.3, 1] }}
-                  transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Number.POSITIVE_INFINITY,
+                  }}
                   className="w-2 h-2 rounded-full bg-[#00ffc8]"
                 />
-                <span className="text-xs font-mono text-[#00ffc8]/70">LIVE</span>
+                <span className="text-xs font-mono text-[#00ffc8]/70">
+                  LIVE
+                </span>
               </div>
             </div>
 
@@ -105,19 +114,30 @@ export function ResearchTerminal() {
                     transition={{ duration: 0.3 }}
                     className="flex items-start gap-3"
                   >
-                    <span className="text-xs font-mono text-white/20 mt-0.5">{String(index + 1).padStart(2, "0")}</span>
-                    <span className="text-sm font-mono text-[#00ffc8]/80">{log}</span>
+                    <span className="text-xs font-mono text-white/20 mt-0.5">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-sm font-mono text-[#00ffc8]/80">
+                      {log}
+                    </span>
                   </motion.div>
                 ))}
 
                 {/* Cursor */}
                 <div className="flex items-center gap-3">
-                  <span className="text-xs font-mono text-white/20">{String(logs.length + 1).padStart(2, "0")}</span>
+                  <span className="text-xs font-mono text-white/20">
+                    {String(logs.length + 1).padStart(2, "0")}
+                  </span>
                   <div className="flex items-center">
-                    <span className="text-sm font-mono text-white/50">{">"}</span>
+                    <span className="text-sm font-mono text-white/50">
+                      {">"}
+                    </span>
                     <motion.span
                       animate={{ opacity: [1, 0] }}
-                      transition={{ duration: 0.8, repeat: Number.POSITIVE_INFINITY }}
+                      transition={{
+                        duration: 0.8,
+                        repeat: Number.POSITIVE_INFINITY,
+                      }}
                       className="ml-1 w-2 h-4 bg-[#00ffc8]"
                     />
                   </div>
@@ -128,8 +148,12 @@ export function ResearchTerminal() {
             {/* Terminal Footer */}
             <div className="px-4 py-2 border-t border-white/5 bg-white/[0.01]">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-mono text-white/20">KARDASHEV_LABS::RESEARCH</span>
-                <span className="text-xs font-mono text-white/20">UTC {currentTime}</span>
+                <span className="text-xs font-mono text-white/20">
+                  KARDASHEV_LABS::RESEARCH
+                </span>
+                <span className="text-xs font-mono text-white/20">
+                  UTC {currentTime}
+                </span>
               </div>
             </div>
           </div>
@@ -139,5 +163,5 @@ export function ResearchTerminal() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

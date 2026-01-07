@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { KardashevProgress } from "./kardashev-progress";
-import { Zap } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 
 export function HeroSection() {
   return (
@@ -106,8 +106,28 @@ export function HeroSection() {
           <KardashevProgress />
         </motion.div>
 
-        {/* Stats Row */}
+        {/* Scroll Indicator */}
         <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1.2 }}
+          className="absolute left-1/2 -translate-x-1/2"
+          style={{ bottom: "-6rem" }}
+        >
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="flex flex-col items-center gap-2 text-muted-foreground"
+          >
+            <span className="font-mono text-xs tracking-wider uppercase">
+              Explore
+            </span>
+            <ArrowDown size={16} />
+          </motion.div>
+        </motion.div>
+
+        {/* Stats Row */}
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.9 }}
@@ -127,7 +147,7 @@ export function HeroSection() {
               </div>
             </div>
           ))}
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

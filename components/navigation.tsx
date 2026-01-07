@@ -1,21 +1,21 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
-import { Menu, X } from "lucide-react"
-import { Logo } from "./logo"
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { Logo } from "./logo";
 
 export function Navigation() {
-  const [scrolled, setScrolled] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  const navItems = ["Overview", "Scale", "Portfolio", "Research"]
+  const navItems = ["Overview", "Scale", "Portfolio", "Research"];
 
   return (
     <motion.nav
@@ -23,7 +23,9 @@ export function Navigation() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-[#050505]/80 backdrop-blur-xl border-b border-white/5" : ""
+        scrolled
+          ? "bg-[#050505]/80 backdrop-blur-xl border-b border-white/5"
+          : ""
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
@@ -34,7 +36,14 @@ export function Navigation() {
               <div className="absolute inset-0 bg-[#00ffc8]/20 rounded-lg blur-sm" />
               <Logo className="relative" />
             </div>
-            <span className="font-mono text-sm tracking-wider text-white/90">KARDASHEV LABS</span>
+            <div className="flex flex-col">
+              <span className="font-mono text-sm tracking-wider text-white/90">
+                Kardashev Labs
+              </span>
+              <span className="font-mono text-[10px] tracking-wider text-white/50">
+                A Teewan Company
+              </span>
+            </div>
           </div>
 
           {/* Desktop Navigation */}
@@ -55,10 +64,16 @@ export function Navigation() {
             <div className="flex items-center gap-2 px-3 py-1.5 border border-[#00ffc8]/20 rounded-full bg-[#00ffc8]/5">
               <motion.div
                 animate={{ opacity: [1, 0.4, 1] }}
-                transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                transition={{
+                  duration: 2,
+                  repeat: Number.POSITIVE_INFINITY,
+                  ease: "easeInOut",
+                }}
                 className="w-2 h-2 rounded-full bg-[#00ffc8] shadow-[0_0_8px_rgba(0,255,200,0.8)]"
               />
-              <span className="text-xs font-mono text-[#00ffc8]/80 tracking-wider">T1 STATUS: ACTIVE</span>
+              <span className="text-xs font-mono text-[#00ffc8]/80 tracking-wider">
+                T1 STATUS: ACTIVE
+              </span>
             </div>
           </div>
 
@@ -92,15 +107,21 @@ export function Navigation() {
               <div className="flex items-center gap-2 pt-4 border-t border-white/10">
                 <motion.div
                   animate={{ opacity: [1, 0.4, 1] }}
-                  transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                  transition={{
+                    duration: 2,
+                    repeat: Number.POSITIVE_INFINITY,
+                    ease: "easeInOut",
+                  }}
                   className="w-2 h-2 rounded-full bg-[#00ffc8] shadow-[0_0_8px_rgba(0,255,200,0.8)]"
                 />
-                <span className="text-xs font-mono text-[#00ffc8]/80">T1 STATUS: ACTIVE</span>
+                <span className="text-xs font-mono text-[#00ffc8]/80">
+                  T1 STATUS: ACTIVE
+                </span>
               </div>
             </div>
           </motion.div>
         )}
       </div>
     </motion.nav>
-  )
+  );
 }

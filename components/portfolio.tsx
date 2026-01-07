@@ -1,15 +1,20 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { ExternalLink, Play, X } from "lucide-react"
+import { motion } from "framer-motion";
+import { ExternalLink, Play, X } from "lucide-react";
 
 const projects = [
   {
-    id: 1,
-    name: "Delta Neutral Bot",
-    description: "Market-neutral yield extraction via funding inefficiencies.",
-    tags: ["Perps", "Funding", "Risk"],
-    featured: true,
+    id: 3,
+    name: "Swarm Ops (Autonomous Agentic Layer)",
+    specs: {
+      LOGIC: "Autonomous LLM orchestration for multi-agent coordination.",
+      STATUS: "EthDenver 2025 Coinbase's SDK Winner - Infrastructure & Tooling.",
+      CAPACITY: "High-frequency on-chain interaction management.",
+    },
+    tags: ["AI_AGENTS", "ETHDENVER_WINNER", "AGENTIC_OPS"],
+    featured: false,
+    linksDisabled: false,
     links: {
       x: "https://x.com/kardashevlabs",
       website: "https://kardashevlabs.com",
@@ -18,29 +23,39 @@ const projects = [
   },
   {
     id: 2,
-    name: "Dashy",
-    description: "Wallet cluster management for coordinated on-chain execution.",
-    tags: ["Infra", "Automation"],
+    name: "Dashy (Cluster Orchestration)",
+    specs: {
+      LOGIC: "Visual execution layer for Solana wallet clusters.",
+      STATUS: "Solana Colosseum Awarded - Wallet Infrastructure.",
+      CAPACITY: "Multi-sig & batch transaction synchronization.",
+    },
+    tags: ["WALLET_INFRA", "COLOSSEUM", "CLUSTER_SYNC"],
     featured: false,
+    linksDisabled: false,
     links: {
-      x: "https://x.com/kardashevlabs",
-      website: "https://kardashevlabs.com",
-      video: "https://youtube.com",
+      x: "https://x.com/LetsDashy/status/1856355916637188561",
+      website: "dashy-teal.vercel.app",
+      video: "https://studio.youtube.com/video/R7qukskWYqk/edit",
     },
   },
   {
-    id: 3,
-    name: "Swarm Ops",
-    description: "Multi-agent AI system managing cross-wallet interactions.",
-    tags: ["AI Agents", "Ops"],
-    featured: false,
+    id: 1,
+    name: "Gainz (Delta-Neutral Primitive)",
+    specs: {
+      LOGIC: "Automated funding-rate arbitrage via perpetual futures.",
+      STATUS: "24/7 Risk-neutralized execution with auto-rebalancing.",
+      CAPACITY: "Type 1 Capital Efficiency at scale.",
+    },
+    tags: ["DEFI", "ARBITRAGE", "CAPITAL_EFFICIENCY"],
+    featured: true,
+    linksDisabled: true,
     links: {
       x: "https://x.com/kardashevlabs",
       website: "https://kardashevlabs.com",
       video: "https://youtube.com",
     },
   },
-]
+];
 
 export function Portfolio() {
   return (
@@ -53,10 +68,15 @@ export function Portfolio() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <span className="inline-block px-4 py-2 mb-6 text-xs font-mono text-white/50 tracking-widest border border-white/10 rounded-full">
-            SYSTEMS PORTFOLIO
+          <span className="inline-block px-3 py-1.5 mb-4 text-[10px] font-mono text-white/30 tracking-widest border border-white/5 rounded-full bg-white/[0.01]">
+            ACHIEVEMENTS
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white">Active Infrastructure</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-2">
+            Core Modules
+          </h2>
+          <p className="text-xs md:text-sm font-mono text-white/40 tracking-wide">
+            // SYSTEM_DESIGNATION: T1_AUTONOMOUS_PRIMITIVES
+          </p>
         </motion.div>
 
         {/* Bento Grid */}
@@ -68,7 +88,9 @@ export function Portfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className={`group relative ${project.featured ? "md:col-span-2" : ""}`}
+              className={`group relative ${
+                project.featured ? "md:col-span-2" : ""
+              }`}
             >
               <div className="relative h-full p-6 md:p-8 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/20 transition-all duration-500">
                 {/* Internal Border Effect */}
@@ -82,46 +104,91 @@ export function Portfolio() {
                 <div className="relative z-10">
                   {/* Header */}
                   <div className="flex items-start justify-between mb-6">
-                    <div>
-                      <h3 className="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-[#00ffc8] transition-colors duration-300">
+                    <div className="flex-1">
+                      <h3 className="text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-[#00ffc8] transition-colors duration-300">
                         {project.name}
                       </h3>
-                      <p className="text-white/50 max-w-md">{project.description}</p>
+                      {/* System Specifications List */}
+                      <ul className="space-y-3 font-mono">
+                        {Object.entries(project.specs).map(([key, value]) => (
+                          <li key={key} className="leading-relaxed">
+                            <span className="text-[10px] text-white/30 tracking-widest uppercase">
+                              {key}:
+                            </span>
+                            <span className="text-[12px] text-white/80 ml-2">
+                              {value}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-
-                    <div className="flex items-center gap-2">
-                      <a
-                        href={project.links.x}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group/btn cursor-pointer"
-                      >
-                        <X size={16} className="text-white/50 group-hover/btn:text-white transition-colors" />
-                      </a>
-                      <a
-                        href={project.links.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group/btn cursor-pointer"
-                      >
-                        <ExternalLink
-                          size={16}
-                          className="text-white/50 group-hover/btn:text-white transition-colors"
-                        />
-                      </a>
-                      <a
-                        href={project.links.video}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group/btn cursor-pointer"
-                      >
-                        <Play size={16} className="text-white/50 group-hover/btn:text-white transition-colors" />
-                      </a>
+                    <div className="flex items-center gap-2 ml-4">
+                      {project.linksDisabled ? (
+                        <>
+                          <div className="p-2 rounded-lg border border-white/10 bg-white/5 opacity-50 cursor-not-allowed pointer-events-none">
+                            <X size={16} className="text-white/50" />
+                          </div>
+                          <div className="p-2 rounded-lg border border-white/10 bg-white/5 opacity-50 cursor-not-allowed pointer-events-none">
+                            <ExternalLink size={16} className="text-white/50" />
+                          </div>
+                          <a
+                            href="#research-terminal"
+                            className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group/btn cursor-pointer"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              document
+                                .getElementById("research-terminal")
+                                ?.scrollIntoView({ behavior: "smooth" });
+                            }}
+                          >
+                            <Play
+                              size={16}
+                              className="text-white/50 group-hover/btn:text-white transition-colors"
+                            />
+                          </a>
+                        </>
+                      ) : (
+                        <>
+                          <a
+                            href={project.links.x}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group/btn cursor-pointer"
+                          >
+                            <X
+                              size={16}
+                              className="text-white/50 group-hover/btn:text-white transition-colors"
+                            />
+                          </a>
+                          <a
+                            href={project.links.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group/btn cursor-pointer"
+                          >
+                            <ExternalLink
+                              size={16}
+                              className="text-white/50 group-hover/btn:text-white transition-colors"
+                            />
+                          </a>
+                          <a
+                            href={project.links.video}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group/btn cursor-pointer"
+                          >
+                            <Play
+                              size={16}
+                              className="text-white/50 group-hover/btn:text-white transition-colors"
+                            />
+                          </a>
+                        </>
+                      )}
                     </div>
                   </div>
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-6">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
@@ -136,10 +203,15 @@ export function Portfolio() {
                   <div className="absolute bottom-6 right-6 md:bottom-8 md:right-8 flex items-center gap-2">
                     <motion.div
                       animate={{ opacity: [1, 0.4, 1] }}
-                      transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+                      transition={{
+                        duration: 2,
+                        repeat: Number.POSITIVE_INFINITY,
+                      }}
                       className="w-2 h-2 rounded-full bg-[#00ffc8]"
                     />
-                    <span className="text-xs font-mono text-white/30">ACTIVE</span>
+                    <span className="text-xs font-mono text-white/30">
+                      ACTIVE
+                    </span>
                   </div>
                 </div>
               </div>
@@ -148,5 +220,5 @@ export function Portfolio() {
         </div>
       </div>
     </section>
-  )
+  );
 }
