@@ -245,7 +245,7 @@ export function ResearchTerminal() {
             STRATEGY EXECUTION
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Active Strategy Terminal
+            Active Strategy Agent
           </h2>
         </motion.div>
 
