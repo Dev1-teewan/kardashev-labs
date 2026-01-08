@@ -17,9 +17,9 @@ export function Navigation() {
 
   const navItems = [
     { label: "Overview", href: "#overview", sectionId: "overview" },
-    { label: "Operation", href: "#synergy", sectionId: "synergy" },
-    { label: "Modules", href: "#portfolio", sectionId: "portfolio" },
-    { label: "Research", href: "#research", sectionId: "research" },
+    { label: "Operations", href: "#operations", sectionId: "operations" },
+    { label: "Modules", href: "#modules", sectionId: "modules" },
+    { label: "Terminal", href: "#terminal", sectionId: "terminal" },
   ];
 
   const handleNavClick = (

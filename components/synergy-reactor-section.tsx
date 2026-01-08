@@ -6,7 +6,7 @@ import { SynergyReactor } from "./synergy-reactor";
 export function SynergyReactorSection() {
   return (
     <section
-      id="synergy"
+      id="operations"
       className="relative min-h-screen flex flex-col items-center justify-center py-32"
     >
       <div className="relative z-10 max-w-6xl mx-auto px-6 w-full">

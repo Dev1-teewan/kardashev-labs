@@ -232,7 +232,7 @@ export function ResearchTerminal() {
   };
 
   return (
-    <section id="research" className="relative py-32">
+    <section id="terminal" className="relative py-32">
       <div className="max-w-4xl mx-auto px-6">
         {/* Section Header */}
         <motion.div

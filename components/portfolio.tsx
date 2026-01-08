@@ -83,7 +83,7 @@ const projects = [
 
 export function Portfolio() {
   return (
-    <section id="portfolio" className="relative py-32">
+    <section id="modules" className="relative py-32">
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
         <motion.div
@@ -159,12 +159,12 @@ export function Portfolio() {
                       <div className="flex items-center gap-2 flex-shrink-0">
                         {project.linksDisabled ? (
                           <a
-                            href="#research"
+                            href="#terminal"
                             className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group/btn cursor-pointer"
                             onClick={(e) => {
                               e.preventDefault();
                               document
-                                .getElementById("research")
+                                .getElementById("terminal")
                                 ?.scrollIntoView({ behavior: "smooth" });
                             }}
                           >
