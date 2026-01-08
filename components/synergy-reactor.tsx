@@ -215,35 +215,26 @@ export function SynergyReactor() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
-                  <defs>
-                    <filter
-                      id="neonGlow"
-                      x="-50%"
-                      y="-50%"
-                      width="200%"
-                      height="200%"
-                    >
-                      <feGaussianBlur stdDeviation="2" result="coloredBlur" />
-                      <feOffset
-                        in="coloredBlur"
-                        dx="0"
-                        dy="0"
-                        result="offsetBlur"
-                      />
-                      <feFlood floodColor="#00ffc8" floodOpacity="0.5" />
-                      <feComposite in2="offsetBlur" operator="in" />
-                      <feMerge>
-                        <feMergeNode />
-                        <feMergeNode in="SourceGraphic" />
-                      </feMerge>
-                    </filter>
-                  </defs>
+                  {/* Horizontal line - completes the globe - rendered last to appear on top */}
+                  <motion.path
+                    d="M 4 24 L 44 24"
+                    stroke="#050505"
+                    strokeWidth="3.5"
+                    strokeLinecap="round"
+                    fill="none"
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    animate={{ pathLength: 1, opacity: 1 }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 1.5,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                  />
                   {/* Globe circle outline - matches lucide-react Globe */}
                   <motion.circle
                     cx="24"
                     cy="24"
                     r="20"
-                    filter="url(#neonGlow)"
                     initial={{ pathLength: 0, opacity: 0 }}
                     animate={{ pathLength: 1, opacity: 1 }}
                     transition={{
@@ -253,31 +244,14 @@ export function SynergyReactor() {
                     }}
                   />
 
-                  {/* Left hemisphere arc - matches lucide-react Globe (scaled 2x from 24x24 to 48x48) */}
+                  {/* Right hemisphere arc - completes the globe */}
                   <motion.path
-                    d="M 24 4 A 29 29 0 0 0 24 44 A 29 29 0 0 0 24 4"
-                    filter="url(#neonGlow)"
+                    d="M 24 4 A 29 29 0 0 1 24 44 A 29 29 0 0 1 24 4"
                     initial={{ pathLength: 0, opacity: 0 }}
                     animate={{ pathLength: 1, opacity: 1 }}
                     transition={{
                       duration: 0.9,
-                      delay: 1.0,
-                      ease: [0.16, 1, 0.3, 1],
-                    }}
-                  />
-
-                  {/* Horizontal line - matches lucide-react Globe */}
-                  <motion.line
-                    x1="4"
-                    y1="24"
-                    x2="44"
-                    y2="24"
-                    filter="url(#neonGlow)"
-                    initial={{ pathLength: 0, opacity: 0 }}
-                    animate={{ pathLength: 1, opacity: 1 }}
-                    transition={{
-                      duration: 0.6,
-                      delay: 1.4,
+                      delay: 1.2,
                       ease: [0.16, 1, 0.3, 1],
                     }}
                   />
@@ -304,7 +278,7 @@ export function SynergyReactor() {
             position: "left-8 md:left-16",
             delay: 0.8,
             glowDelay: 0,
-            title: "AUTONOMOUS INTELLIGENCE",
+            title: "ARTIFICIAL INTELLIGENCE",
             label: "AI",
             iconAnimation: (
               <motion.div

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, X, MessageCircle } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 import { Logo } from "./logo";
 
 export function Footer() {
@@ -39,21 +39,30 @@ export function Footer() {
 
           {/* Social Links */}
           <div className="flex items-center gap-4">
-            {[
-              { icon: X, label: "X" },
-              { icon: Github, label: "GitHub" },
-              { icon: MessageCircle, label: "Discord" },
-            ].map(({ icon: Icon, label }) => (
-              <button
-                key={label}
-                className="p-2 rounded-lg border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/20 transition-all duration-300 group"
-              >
-                <Icon
-                  size={18}
-                  className="text-white/40 group-hover:text-white/70 transition-colors"
-                />
-              </button>
-            ))}
+            <a
+              href="https://www.linkedin.com/company/kardashev-labs-teewan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/20 transition-all duration-300 group"
+              aria-label="LinkedIn"
+            >
+              <Linkedin
+                size={18}
+                className="text-white/40 group-hover:text-white/70 transition-colors"
+              />
+            </a>
+            <a
+              href="https://github.com/Dev1-teewan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/20 transition-all duration-300 group"
+              aria-label="GitHub"
+            >
+              <Github
+                size={18}
+                className="text-white/40 group-hover:text-white/70 transition-colors"
+              />
+            </a>
           </div>
         </div>
 

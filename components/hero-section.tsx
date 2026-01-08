@@ -64,7 +64,7 @@ export function HeroSection() {
                 />
               </svg>
             </span>
-            <span className="text-muted-foreground">Crypto X AI | At Scale.</span>
+            <span className="text-muted-foreground">Blockchain X AI | At Scale.</span>
           </span>
         </motion.div>
 

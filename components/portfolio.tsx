@@ -37,13 +37,13 @@ const projects = [
     linksDisabled: false,
     links: {
       x: "https://x.com/LetsDashy/status/1856355916637188561",
-      website: "dashy-teal.vercel.app",
-      video: "https://studio.youtube.com/video/R7qukskWYqk/edit",
+      website: "https://dashy-teal.vercel.app/",
+      video: "https://youtu.be/R7qukskWYqk",
     },
   },
   {
     id: 3,
-    name: "Gainz (Delta-Neutral Primitive)",
+    name: "Gains (Delta-Neutral Primitive)",
     specs: {
       CORE: "Automated funding-rate arbitrage via perpetual futures.",
       PROOF:
