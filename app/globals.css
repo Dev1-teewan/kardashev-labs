@@ -178,3 +178,17 @@
   align-items: center;
   justify-content: center;
 }
+
+/* Terminal scan line animation */
+@keyframes scan-line {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.terminal-scan-line {
+  animation: scan-line 3s linear infinite;
+}

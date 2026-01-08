@@ -55,7 +55,7 @@ const projects = [
     featured: false,
     linksDisabled: true,
     links: {
-      x: "https://x.com/kardashevlabs",
+      x: "https://x.com/",
       website: "https://kardashevlabs.com",
       video: "https://youtube.com",
     },
@@ -158,32 +158,21 @@ export function Portfolio() {
                     ) && (
                       <div className="flex items-center gap-2 flex-shrink-0">
                         {project.linksDisabled ? (
-                          <>
-                            <div className="p-2 rounded-lg border border-white/10 bg-white/5 opacity-50 cursor-not-allowed pointer-events-none">
-                              <X size={16} className="text-white/50" />
-                            </div>
-                            <div className="p-2 rounded-lg border border-white/10 bg-white/5 opacity-50 cursor-not-allowed pointer-events-none">
-                              <ExternalLink
-                                size={16}
-                                className="text-white/50"
-                              />
-                            </div>
-                            <a
-                              href="#research-terminal"
-                              className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group/btn cursor-pointer"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                document
-                                  .getElementById("research-terminal")
-                                  ?.scrollIntoView({ behavior: "smooth" });
-                              }}
-                            >
-                              <Play
-                                size={16}
-                                className="text-white/50 group-hover/btn:text-white transition-colors"
-                              />
-                            </a>
-                          </>
+                          <a
+                            href="#research"
+                            className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group/btn cursor-pointer"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              document
+                                .getElementById("research")
+                                ?.scrollIntoView({ behavior: "smooth" });
+                            }}
+                          >
+                            <Play
+                              size={16}
+                              className="text-white/50 group-hover/btn:text-white transition-colors"
+                            />
+                          </a>
                         ) : (
                           <>
                             <a
