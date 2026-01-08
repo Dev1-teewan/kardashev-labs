@@ -19,6 +19,11 @@ export const metadata: Metadata = {
   description:
     "Autonomous agents, capital-efficient strategies, and coordination infrastructure for the Web3 frontier.",
   generator: "TeeWan Labs",
+  icons: {
+    icon: "/logo-transparent.svg",
+    shortcut: "/logo-transparent.svg",
+    apple: "/logo-transparent.svg",
+  },
 };
 
 export default function RootLayout({
