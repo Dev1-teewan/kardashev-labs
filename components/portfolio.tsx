@@ -5,13 +5,14 @@ import { ExternalLink, Play, X } from "lucide-react";
 
 const projects = [
   {
-    id: 3,
+    id: 1,
     name: "Swarm Ops (Autonomous Agentic Layer)",
     specs: {
-      LOGIC: "Autonomous LLM orchestration for multi-agent coordination.",
-      STATUS:
-        "EthDenver 2025 Coinbase's SDK Winner - Infrastructure & Tooling.",
-      CAPACITY: "High-frequency on-chain interaction management.",
+      CORE: "Decentralized multi-agent coordination framework utilizing autonomous LLM.",
+      PROOF:
+        "EthDenver 2025 Coinbase's AgentKit Winner: Most Innovation Use Case.",
+      SCALE:
+        "High-frequency orchestration of complex, agentic on-chain interactions.",
     },
     tags: ["AI_AGENTS", "ETHDENVER_WINNER", "AGENTIC_OPS"],
     featured: false,
@@ -26,9 +27,10 @@ const projects = [
     id: 2,
     name: "Dashy (Cluster Orchestration)",
     specs: {
-      LOGIC: "Visual execution layer for Solana wallet clusters.",
-      STATUS: "Solana Colosseum Awarded - Wallet Infrastructure.",
-      CAPACITY: "Multi-sig & batch transaction synchronization.",
+      CORE: "High-fidelity visual orchestration layer for cross-chain (SVM/EVM) wallet clusters.",
+      PROOF: "Solana Global Colosseum Awarded - Crypto Infrastructure Track.",
+      SCALE:
+        "Manage complex swarms while ensuring absolute cross-transaction isolation.",
     },
     tags: ["WALLET_INFRA", "COLOSSEUM", "CLUSTER_SYNC"],
     featured: false,
@@ -40,12 +42,14 @@ const projects = [
     },
   },
   {
-    id: 1,
+    id: 3,
     name: "Gainz (Delta-Neutral Primitive)",
     specs: {
-      LOGIC: "Automated funding-rate arbitrage via perpetual futures.",
-      STATUS: "24/7 Risk-neutralized execution with auto-rebalancing.",
-      CAPACITY: "Type 1 Capital Efficiency at scale.",
+      CORE: "Automated funding-rate arbitrage via perpetual futures.",
+      PROOF:
+        "24/7 Risk-neutralized execution with autonomous rebalancing and health management.",
+      SCALE:
+        "Monitor and deploy delta-neutral strategies across multiple protocols.",
     },
     tags: ["DEFI", "ARBITRAGE", "CAPITAL_EFFICIENCY"],
     featured: true,
