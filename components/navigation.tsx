@@ -77,7 +77,7 @@ export function Navigation() {
                 className="w-2 h-2 rounded-full bg-[#00ffc8] shadow-[0_0_8px_rgba(0,255,200,0.8)]"
               />
               <span className="text-xs font-mono text-[#00ffc8]/80 tracking-wider">
-                T1 STATUS: ACTIVE
+                STATUS: ONLINE
               </span>
             </div>
           </div>
@@ -120,7 +120,7 @@ export function Navigation() {
                   className="w-2 h-2 rounded-full bg-[#00ffc8] shadow-[0_0_8px_rgba(0,255,200,0.8)]"
                 />
                 <span className="text-xs font-mono text-[#00ffc8]/80">
-                  T1 STATUS: ACTIVE
+                  STATUS: ACTIVE
                 </span>
               </div>
             </div>

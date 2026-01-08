@@ -59,10 +59,10 @@ export function ResearchTerminal() {
           className="text-center mb-12"
         >
           <span className="inline-block px-4 py-2 mb-6 text-xs font-mono text-white/50 tracking-widest border border-white/10 rounded-full">
-            RESEARCH LAB
+            RESEARCH AREA
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Active Research Terminal
+            Blockchain Research Terminal
           </h2>
         </motion.div>
 

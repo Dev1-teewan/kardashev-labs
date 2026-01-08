@@ -124,7 +124,7 @@ export function SynergyReactor() {
             strokeLinecap="round"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
-            transition={{ duration: 1.5, delay: 0.5 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
           />
           <motion.path
             d="M 450 200 C 580 260, 620 360, 640 480"
@@ -135,7 +135,7 @@ export function SynergyReactor() {
             strokeLinecap="round"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
-            transition={{ duration: 1.5, delay: 0.7 }}
+            transition={{ duration: 0.4, delay: 0.3 }}
           />
         </svg>
 
@@ -147,15 +147,15 @@ export function SynergyReactor() {
           delayOffset={1}
         />
 
-        {/* T1 Core - Root at Top */}
+        {/* Dyson Catalyst Core - Root at Top */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2, ...SPRING_TRANSITION }}
+          transition={{ duration: 0.4, delay: 0.2, ...SPRING_TRANSITION }}
           className="relative z-20 flex flex-col items-center mb-8"
         >
           <div className="relative">
-            {/* Pulsing Energy Core */}
+            {/* Pulsing Energy Core Glow */}
             <motion.div
               className="absolute inset-0 rounded-full bg-[#00ffc8]/40 blur-2xl"
               animate={{
@@ -179,19 +179,119 @@ export function SynergyReactor() {
                 delay: 0.5,
               }}
             />
+            {/* Globe Icon with Line Drawing Animation */}
             <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-[#00ffc8] to-[#00cc9f] flex items-center justify-center border-2 border-[#00ffc8]">
-              <span className="text-3xl md:text-4xl font-mono font-bold text-[#050505]">
-                T1
-              </span>
+              <motion.div
+                className="relative z-10"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{
+                  opacity: 1,
+                  scale: [1, 1.1, 1],
+                }}
+                transition={{
+                  opacity: {
+                    duration: 0.8,
+                    delay: 0.4,
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 25,
+                  },
+                  scale: {
+                    duration: 1.5,
+                    repeat: Number.POSITIVE_INFINITY,
+                    delay: 2.0,
+                    ease: "easeInOut",
+                  },
+                }}
+              >
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 48 48"
+                  className="relative"
+                  fill="none"
+                  stroke="#050505"
+                  strokeWidth="3.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <defs>
+                    <filter
+                      id="neonGlow"
+                      x="-50%"
+                      y="-50%"
+                      width="200%"
+                      height="200%"
+                    >
+                      <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+                      <feOffset
+                        in="coloredBlur"
+                        dx="0"
+                        dy="0"
+                        result="offsetBlur"
+                      />
+                      <feFlood floodColor="#00ffc8" floodOpacity="0.5" />
+                      <feComposite in2="offsetBlur" operator="in" />
+                      <feMerge>
+                        <feMergeNode />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  {/* Globe circle outline - matches lucide-react Globe */}
+                  <motion.circle
+                    cx="24"
+                    cy="24"
+                    r="20"
+                    filter="url(#neonGlow)"
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    animate={{ pathLength: 1, opacity: 1 }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 0.6,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                  />
+
+                  {/* Left hemisphere arc - matches lucide-react Globe (scaled 2x from 24x24 to 48x48) */}
+                  <motion.path
+                    d="M 24 4 A 29 29 0 0 0 24 44 A 29 29 0 0 0 24 4"
+                    filter="url(#neonGlow)"
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    animate={{ pathLength: 1, opacity: 1 }}
+                    transition={{
+                      duration: 0.9,
+                      delay: 1.0,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                  />
+
+                  {/* Horizontal line - matches lucide-react Globe */}
+                  <motion.line
+                    x1="4"
+                    y1="24"
+                    x2="44"
+                    y2="24"
+                    filter="url(#neonGlow)"
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    animate={{ pathLength: 1, opacity: 1 }}
+                    transition={{
+                      duration: 0.6,
+                      delay: 1.4,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                  />
+                </svg>
+              </motion.div>
             </div>
           </div>
 
-          {/* TIER-1 SYNERGY - Below root */}
+          {/* INTERSECTION - Below core */}
           <div className="mt-6 text-center">
-            <div className="text-lg md:text-xl font-mono font-bold text-[#00ffc8] uppercase tracking-wider mb-1">
-              TIER-1 SYNERGY
+            <div className="text-lg md:text-xl font-mono font-bold text-[#00ffc8] uppercase tracking-wider mb-2">
+              INTERSECTION
             </div>
-            <div className="text-xs font-mono text-white/50 max-w-[220px]">
+            <div className="text-xs font-mono text-white/50 max-w-[220px] mb-3">
               Consensus provides the trust; AI provides the efficiency
             </div>
           </div>
@@ -250,7 +350,7 @@ export function SynergyReactor() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
-              duration: 0.6,
+              duration: 0.4,
               delay: branch.delay,
               ...SPRING_TRANSITION,
             }}
@@ -289,19 +389,19 @@ export function SynergyReactor() {
           </motion.div>
         ))}
 
-        {/* Highlight Quote - Below AI and Blockchain elements */}
+        {/* Highlight Quote - Massive and centered at bottom */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
-          className="absolute -bottom-12 left-1/2 -translate-x-1/2 z-10 text-center px-4 w-full"
+          className="absolute -bottom-12 md:-bottom-16 left-1/2 -translate-x-1/2 z-10 text-center px-4 w-full"
         >
           <motion.p
             className="text-lg md:text-xl font-mono font-bold text-white max-w-3xl mx-auto leading-tight"
             animate={{
               textShadow: [
                 "0 0 10px rgba(0, 255, 200, 0.3)",
-                "0 0 20px rgba(0, 255, 200, 0.6)",
+                "0 0 25px rgba(0, 255, 200, 0.7)",
                 "0 0 10px rgba(0, 255, 200, 0.3)",
               ],
               opacity: [0.9, 1, 0.9],
@@ -312,7 +412,7 @@ export function SynergyReactor() {
               ease: "easeInOut",
             }}
           >
-            Together, they enable full planetary resource optimization.
+            Together, they empower people through transformative technology.
           </motion.p>
         </motion.div>
       </div>

@@ -1,0 +1,52 @@
+<svg
+  width="400"
+  height="400"
+  viewBox="0 0 40 40"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  style="shape-rendering: geometricPrecision; display: block;"
+>
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur" />
+      <feMerge>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Rounded square container -->
+  <rect
+    x="3"
+    y="3"
+    width="34"
+    height="34"
+    rx="6"
+    stroke="#00ffc8"
+    stroke-width="2.5"
+    fill="none"
+    filter="url(#glow)"
+  />
+
+  <!-- Geometric "K" -->
+  <g
+    stroke="#00ffc8"
+    stroke-width="3"
+    stroke-linecap="round"
+    stroke-linejoin="miter"
+    fill="none"
+    filter="url(#glow)"
+  >
+    <!-- Vertical stem -->
+    <line x1="15" y1="9" x2="15" y2="31" />
+    
+    <!-- Top diagonal -->
+    <line x1="15" y1="18" x2="27" y2="9" />
+    
+    <!-- Bottom diagonal -->
+    <line x1="15" y1="18" x2="27" y2="31" />
+  </g>
+</svg>
+
+
