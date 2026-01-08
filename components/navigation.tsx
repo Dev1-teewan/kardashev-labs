@@ -16,11 +16,24 @@ export function Navigation() {
   }, []);
 
   const navItems = [
-    { label: "Overview", href: "#overview" },
-    { label: "Synergy", href: "#synergy" },
-    { label: "Portfolio", href: "#portfolio" },
-    { label: "Research", href: "#research" },
+    { label: "Overview", href: "#overview", sectionId: "overview" },
+    { label: "Operation", href: "#synergy", sectionId: "synergy" },
+    { label: "Modules", href: "#portfolio", sectionId: "portfolio" },
+    { label: "Research", href: "#research", sectionId: "research" },
   ];
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    sectionId: string
+  ) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      // Update URL without hash
+      window.history.pushState(null, "", window.location.pathname);
+    }
+  };
 
   return (
     <motion.nav
@@ -57,6 +70,7 @@ export function Navigation() {
               <a
                 key={item.label}
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.sectionId)}
                 className="text-sm text-white/50 hover:text-white/90 transition-colors duration-300 font-mono tracking-wide"
               >
                 {item.label}
@@ -103,26 +117,15 @@ export function Navigation() {
                 <a
                   key={item.label}
                   href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    handleNavClick(e, item.sectionId);
+                    setMobileMenuOpen(false);
+                  }}
                   className="text-sm text-white/70 hover:text-white transition-colors font-mono"
                 >
                   {item.label}
                 </a>
               ))}
-              <div className="flex items-center gap-2 pt-4 border-t border-white/10">
-                <motion.div
-                  animate={{ opacity: [1, 0.4, 1] }}
-                  transition={{
-                    duration: 2,
-                    repeat: Number.POSITIVE_INFINITY,
-                    ease: "easeInOut",
-                  }}
-                  className="w-2 h-2 rounded-full bg-[#00ffc8] shadow-[0_0_8px_rgba(0,255,200,0.8)]"
-                />
-                <span className="text-xs font-mono text-[#00ffc8]/80">
-                  STATUS: ACTIVE
-                </span>
-              </div>
             </div>
           </motion.div>
         )}
