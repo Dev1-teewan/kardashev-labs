@@ -52,12 +52,31 @@ const projects = [
         "Monitor and deploy delta-neutral strategies across multiple protocols.",
     },
     tags: ["DEFI", "ARBITRAGE", "CAPITAL_EFFICIENCY"],
-    featured: true,
+    featured: false,
     linksDisabled: true,
     links: {
       x: "https://x.com/kardashevlabs",
       website: "https://kardashevlabs.com",
       video: "https://youtube.com",
+    },
+  },
+  {
+    id: 4,
+    name: "LUME (Liquidity Monitoring Engine)",
+    specs: {
+      CORE: "Real-time state-monitoring primitive for cross-protocol  TVL tracking and LST staking.",
+      PROOF:
+        "Verifiable on-chain telemetry for Solana LST deposits and protocol liquidity health.",
+      SCALE:
+        "Orchestrating global liquidity alerts to identify systemic asset inflows and outflows.",
+    },
+    tags: ["FLOW_INTELLIGENCE", "STATE_MONITOR", "LST_ANALYTICS"],
+    featured: false,
+    linksDisabled: true,
+    links: {
+      x: "",
+      website: "",
+      video: "",
     },
   },
 ];
@@ -73,13 +92,32 @@ export function Portfolio() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <span className="inline-block px-3 py-1.5 mb-4 text-[10px] font-mono text-white/30 tracking-widest border border-white/5 rounded-full bg-white/[0.01]">
+          <motion.span
+            className="inline-block px-4 py-2 mb-4 text-xs font-mono font-semibold text-[#00ffc8]/70 tracking-widest border border-[#00ffc8]/20 rounded-full bg-[#00ffc8]/3 backdrop-blur-sm relative"
+            animate={{
+              textShadow: [
+                "0 0 6px rgba(0, 255, 200, 0.2)",
+                "0 0 12px rgba(0, 255, 200, 0.3)",
+                "0 0 6px rgba(0, 255, 200, 0.2)",
+              ],
+              boxShadow: [
+                "0 0 8px rgba(0, 255, 200, 0.05)",
+                "0 0 15px rgba(0, 255, 200, 0.1)",
+                "0 0 8px rgba(0, 255, 200, 0.05)",
+              ],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeInOut",
+            }}
+          >
             ACHIEVEMENTS
-          </span>
+          </motion.span>
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-2">
             Core Modules
           </h2>
-          <p className="text-xs md:text-sm font-mono text-white/40 tracking-wide">
+          <p className="text-xs md:text-sm font-mono text-white/70 tracking-wide">
             // SYSTEM_DESIGNATION: T1_AUTONOMOUS_PRIMITIVES
           </p>
         </motion.div>
@@ -107,116 +145,130 @@ export function Portfolio() {
                 </div>
 
                 <div className="relative z-10">
-                  {/* Header */}
-                  <div className="flex items-start justify-between mb-6">
-                    <div className="flex-1">
-                      <h3 className="text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-[#00ffc8] transition-colors duration-300">
-                        {project.name}
-                      </h3>
-                      {/* System Specifications List */}
+                  {/* Header - Name and Links on one row */}
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-xl md:text-2xl font-bold text-white flex-1 group-hover:text-[#00ffc8] transition-colors duration-300 pr-4">
+                      {project.name}
+                    </h3>
+                    {!(
+                      project.linksDisabled &&
+                      !project.links.x &&
+                      !project.links.website &&
+                      !project.links.video
+                    ) && (
+                      <div className="flex items-center gap-2 flex-shrink-0">
+                        {project.linksDisabled ? (
+                          <>
+                            <div className="p-2 rounded-lg border border-white/10 bg-white/5 opacity-50 cursor-not-allowed pointer-events-none">
+                              <X size={16} className="text-white/50" />
+                            </div>
+                            <div className="p-2 rounded-lg border border-white/10 bg-white/5 opacity-50 cursor-not-allowed pointer-events-none">
+                              <ExternalLink
+                                size={16}
+                                className="text-white/50"
+                              />
+                            </div>
+                            <a
+                              href="#research-terminal"
+                              className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group/btn cursor-pointer"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                document
+                                  .getElementById("research-terminal")
+                                  ?.scrollIntoView({ behavior: "smooth" });
+                              }}
+                            >
+                              <Play
+                                size={16}
+                                className="text-white/50 group-hover/btn:text-white transition-colors"
+                              />
+                            </a>
+                          </>
+                        ) : (
+                          <>
+                            <a
+                              href={project.links.x}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group/btn cursor-pointer"
+                            >
+                              <X
+                                size={16}
+                                className="text-white/50 group-hover/btn:text-white transition-colors"
+                              />
+                            </a>
+                            <a
+                              href={project.links.website}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group/btn cursor-pointer"
+                            >
+                              <ExternalLink
+                                size={16}
+                                className="text-white/50 group-hover/btn:text-white transition-colors"
+                              />
+                            </a>
+                            <a
+                              href={project.links.video}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group/btn cursor-pointer"
+                            >
+                              <Play
+                                size={16}
+                                className="text-white/50 group-hover/btn:text-white transition-colors"
+                              />
+                            </a>
+                          </>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                  {/* System Specifications List - Full width row */}
+                  {Object.keys(project.specs).length > 0 && (
+                    <div className="mb-6">
                       <ul className="space-y-3 font-mono">
                         {Object.entries(project.specs).map(([key, value]) => (
                           <li key={key} className="leading-relaxed">
-                            <span className="text-[10px] text-white/30 tracking-widest uppercase">
+                            <span className="text-[10px] text-white/50 tracking-widest uppercase whitespace-nowrap">
                               {key}:
                             </span>
-                            <span className="text-[12px] text-white/80 ml-2">
+                            <span className="text-xs md:text-sm text-white/90 ml-2 break-words">
                               {value}
                             </span>
                           </li>
                         ))}
                       </ul>
                     </div>
-                    <div className="flex items-center gap-2 ml-4">
-                      {project.linksDisabled ? (
-                        <>
-                          <div className="p-2 rounded-lg border border-white/10 bg-white/5 opacity-50 cursor-not-allowed pointer-events-none">
-                            <X size={16} className="text-white/50" />
-                          </div>
-                          <div className="p-2 rounded-lg border border-white/10 bg-white/5 opacity-50 cursor-not-allowed pointer-events-none">
-                            <ExternalLink size={16} className="text-white/50" />
-                          </div>
-                          <a
-                            href="#research-terminal"
-                            className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group/btn cursor-pointer"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              document
-                                .getElementById("research-terminal")
-                                ?.scrollIntoView({ behavior: "smooth" });
-                            }}
-                          >
-                            <Play
-                              size={16}
-                              className="text-white/50 group-hover/btn:text-white transition-colors"
-                            />
-                          </a>
-                        </>
-                      ) : (
-                        <>
-                          <a
-                            href={project.links.x}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group/btn cursor-pointer"
-                          >
-                            <X
-                              size={16}
-                              className="text-white/50 group-hover/btn:text-white transition-colors"
-                            />
-                          </a>
-                          <a
-                            href={project.links.website}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group/btn cursor-pointer"
-                          >
-                            <ExternalLink
-                              size={16}
-                              className="text-white/50 group-hover/btn:text-white transition-colors"
-                            />
-                          </a>
-                          <a
-                            href={project.links.video}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group/btn cursor-pointer"
-                          >
-                            <Play
-                              size={16}
-                              className="text-white/50 group-hover/btn:text-white transition-colors"
-                            />
-                          </a>
-                        </>
-                      )}
+                  )}
+
+                  {/* Tags and Status */}
+                  <div className="flex items-center justify-between gap-4 mt-6">
+                    {/* Tags on left */}
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1 text-xs font-mono text-white/60 border border-white/20 rounded-full bg-white/[0.02]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
                     </div>
-                  </div>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 text-xs font-mono text-white/40 border border-white/10 rounded-full bg-white/[0.02]"
-                      >
-                        {tag}
+                    {/* Status on right */}
+                    <div className="flex items-center gap-2 flex-shrink-0">
+                      <motion.div
+                        animate={{ opacity: [1, 0.4, 1] }}
+                        transition={{
+                          duration: 2,
+                          repeat: Number.POSITIVE_INFINITY,
+                        }}
+                        className="w-2 h-2 rounded-full bg-[#00ffc8]"
+                      />
+                      <span className="text-xs font-mono text-white/60">
+                        ACTIVE
                       </span>
-                    ))}
-                  </div>
-
-                  {/* Status Indicator */}
-                  <div className="absolute bottom-6 right-6 md:bottom-8 md:right-8 flex items-center gap-2">
-                    <motion.div
-                      animate={{ opacity: [1, 0.4, 1] }}
-                      transition={{
-                        duration: 2,
-                        repeat: Number.POSITIVE_INFINITY,
-                      }}
-                      className="w-2 h-2 rounded-full bg-[#00ffc8]"
-                    />
-                    <span className="text-xs font-mono text-white/30">
-                      ACTIVE
-                    </span>
+                    </div>
                   </div>
                 </div>
               </div>
