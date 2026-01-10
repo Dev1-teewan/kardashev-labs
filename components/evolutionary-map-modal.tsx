@@ -369,41 +369,7 @@ export function EvolutionaryMapModal({
         {/* Glassmorphism Effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#00ffc8]/5 to-transparent opacity-50" />
 
-        {/* Navigation Buttons - Positioned at bottom center */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-4">
-          {onPrev && hasPrev && (
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                onPrev();
-              }}
-              className="p-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 hover:border-[#00ffc8]/50 transition-all backdrop-blur-sm"
-              aria-label="Previous"
-            >
-              <ChevronLeft
-                size={24}
-                className="text-white/70 hover:text-[#00ffc8]"
-              />
-            </button>
-          )}
-          {onNext && hasNext && (
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                onNext();
-              }}
-              className="p-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 hover:border-[#00ffc8]/50 transition-all backdrop-blur-sm"
-              aria-label="Next"
-            >
-              <ChevronRight
-                size={24}
-                className="text-white/70 hover:text-[#00ffc8]"
-              />
-            </button>
-          )}
-        </div>
-
-        <div className="relative z-10 p-6 md:p-8">
+        <div className="relative z-10 p-6 md:p-8 pb-20 md:pb-8">
           {/* Close Button */}
           <button
             onClick={onClose}
@@ -428,6 +394,40 @@ export function EvolutionaryMapModal({
               </p>
             </div>
           </div>
+        </div>
+
+        {/* Navigation Buttons - Positioned at bottom center, below content on mobile */}
+        <div className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-4">
+          {onPrev && hasPrev && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onPrev();
+              }}
+              className="p-2.5 md:p-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 hover:border-[#00ffc8]/50 transition-all backdrop-blur-sm"
+              aria-label="Previous"
+            >
+              <ChevronLeft
+                size={20}
+                className="md:w-6 md:h-6 text-white/70 hover:text-[#00ffc8]"
+              />
+            </button>
+          )}
+          {onNext && hasNext && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onNext();
+              }}
+              className="p-2.5 md:p-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 hover:border-[#00ffc8]/50 transition-all backdrop-blur-sm"
+              aria-label="Next"
+            >
+              <ChevronRight
+                size={20}
+                className="md:w-6 md:h-6 text-white/70 hover:text-[#00ffc8]"
+              />
+            </button>
+          )}
         </div>
       </motion.div>
     </motion.div>

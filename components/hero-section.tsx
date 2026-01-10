@@ -64,7 +64,9 @@ export function HeroSection() {
                 />
               </svg>
             </span>
-            <span className="text-muted-foreground">Blockchain X AI | At Scale.</span>
+            <span className="text-muted-foreground">
+              Blockchain X AI | At Scale.
+            </span>
           </span>
         </motion.div>
 
@@ -75,21 +77,22 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-6"
         >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-4">
-            <span className="text-white">PUSHING HUMANITY UP THE </span>
+          <h1 className="text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-4 px-4">
+            <span className="text-white">PUSHING HUMANITY </span>
+            <span className="text-white block md:inline">UP THE </span>
             <span className="gradient-text relative inline-flex items-center">
-              <span>KARDASHEV SCALE</span>
+              <span className="break-words">KARDASHEV SCALE</span>
               <button
                 onClick={() => setIsDefinitionModalOpen(true)}
-                className="relative group ml-3 inline-flex items-center justify-center"
+                className="relative group ml-1.5 md:ml-3 inline-flex items-center justify-center"
                 aria-label="What is the Kardashev Scale?"
               >
                 <HelpCircle
-                  size={44}
-                  className="text-white/40 hover:text-[#00ffc8] transition-colors cursor-pointer"
+                  size={24}
+                  className="w-6 h-6 md:w-11 md:h-11 text-white/40 hover:text-[#00ffc8] transition-colors cursor-pointer"
                 />
                 <motion.span
-                  className="absolute -inset-2 bg-[#00ffc8]/10 blur-2xl -z-10"
+                  className="absolute -inset-1 md:-inset-2 bg-[#00ffc8]/10 blur-2xl -z-10"
                   animate={{ opacity: [0.5, 0.8, 0.5] }}
                   transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
                 />

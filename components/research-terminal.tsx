@@ -241,9 +241,28 @@ export function ResearchTerminal() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <span className="inline-block px-4 py-2 mb-6 text-xs font-mono text-white/50 tracking-widest border border-white/10 rounded-full">
+          <motion.span
+            className="inline-block px-3 py-1.5 md:px-4 md:py-2 mb-3 md:mb-4 text-[10px] md:text-xs font-mono font-semibold text-[#00ffc8]/70 tracking-widest border border-[#00ffc8]/20 rounded-full bg-[#00ffc8]/3 backdrop-blur-sm relative"
+            animate={{
+              textShadow: [
+                "0 0 6px rgba(0, 255, 200, 0.2)",
+                "0 0 12px rgba(0, 255, 200, 0.3)",
+                "0 0 6px rgba(0, 255, 200, 0.2)",
+              ],
+              boxShadow: [
+                "0 0 8px rgba(0, 255, 200, 0.05)",
+                "0 0 15px rgba(0, 255, 200, 0.1)",
+                "0 0 8px rgba(0, 255, 200, 0.05)",
+              ],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeInOut",
+            }}
+          >
             STRATEGY EXECUTION
-          </span>
+          </motion.span>
           <h2 className="text-3xl md:text-4xl font-bold text-white">
             Active Strategy Agent
           </h2>

@@ -92,14 +92,29 @@ const Particle = ({
 };
 
 export function SynergyReactor() {
-  // Particle paths
-  const aiPath = generateParticlePath(
+  // Particle paths - separate for mobile and desktop
+  // Mobile paths - start higher, more left/right, curve out more
+  const aiPathMobile = generateParticlePath(
+    [160, 480],
+    [150, 360],
+    [200, 260],
+    [360, 170] // Higher and more left
+  );
+  const blockchainPathMobile = generateParticlePath(
+    [640, 480],
+    [650, 360],
+    [600, 260],
+    [440, 170] // Higher and more right
+  );
+
+  // Desktop paths - keep original
+  const aiPathDesktop = generateParticlePath(
     [160, 480],
     [180, 360],
     [220, 260],
     [350, 200]
   );
-  const blockchainPath = generateParticlePath(
+  const blockchainPathDesktop = generateParticlePath(
     [640, 480],
     [620, 360],
     [580, 260],
@@ -115,7 +130,9 @@ export function SynergyReactor() {
           viewBox="0 0 800 600"
           preserveAspectRatio="none"
         >
+          {/* Left path - separate for mobile and desktop */}
           <motion.path
+            className="hidden md:block"
             d="M 350 200 C 220 260, 180 360, 160 480"
             stroke="#00ffc8"
             strokeWidth="2"
@@ -127,7 +144,33 @@ export function SynergyReactor() {
             transition={{ duration: 0.4, delay: 0.2 }}
           />
           <motion.path
+            className="block md:hidden"
+            d="M 360 170 C 200 260, 150 360, 160 480"
+            stroke="#00ffc8"
+            strokeWidth="2"
+            fill="none"
+            strokeOpacity="0.4"
+            strokeLinecap="round"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+          />
+          {/* Right path - separate for mobile and desktop */}
+          <motion.path
+            className="hidden md:block"
             d="M 450 200 C 580 260, 620 360, 640 480"
+            stroke="#00ffc8"
+            strokeWidth="2"
+            fill="none"
+            strokeOpacity="0.4"
+            strokeLinecap="round"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 0.4, delay: 0.3 }}
+          />
+          <motion.path
+            className="block md:hidden"
+            d="M 440 170 C 600 260, 650 360, 640 480"
             stroke="#00ffc8"
             strokeWidth="2"
             fill="none"
@@ -140,12 +183,24 @@ export function SynergyReactor() {
         </svg>
 
         {/* Energy Flow Particles */}
-        <Particle keyPrefix="ai" path={aiPath} />
-        <Particle
-          keyPrefix="blockchain"
-          path={blockchainPath}
-          delayOffset={1}
-        />
+        {/* Mobile particles */}
+        <div className="block md:hidden">
+          <Particle keyPrefix="ai-mobile" path={aiPathMobile} />
+          <Particle
+            keyPrefix="blockchain-mobile"
+            path={blockchainPathMobile}
+            delayOffset={1}
+          />
+        </div>
+        {/* Desktop particles */}
+        <div className="hidden md:block">
+          <Particle keyPrefix="ai-desktop" path={aiPathDesktop} />
+          <Particle
+            keyPrefix="blockchain-desktop"
+            path={blockchainPathDesktop}
+            delayOffset={1}
+          />
+        </div>
 
         {/* Dyson Catalyst Core - Root at Top */}
         <motion.div
@@ -262,10 +317,10 @@ export function SynergyReactor() {
 
           {/* INTERSECTION - Below core */}
           <div className="mt-6 text-center">
-            <div className="text-lg md:text-xl font-mono font-bold text-[#00ffc8] uppercase tracking-wider mb-2">
+            <div className="text-base md:text-lg font-mono font-bold text-[#00ffc8] uppercase tracking-wider mb-2">
               INTERSECTION
             </div>
-            <div className="text-xs font-mono text-white/50 max-w-[220px] mb-3">
+            <div className="hidden md:block text-[10px] font-mono text-white/50 max-w-[220px] mb-3">
               Consensus provides the trust; AI provides the efficiency
             </div>
           </div>
@@ -345,11 +400,11 @@ export function SynergyReactor() {
               </div>
             </div>
             <div className="mt-3 text-center">
-              <div className="text-sm font-mono text-white/60 uppercase tracking-wider mb-1">
+              <div className="hidden md:block text-xs font-mono text-white/60 uppercase tracking-wider mb-1">
                 {branch.title}
               </div>
               <motion.div
-                className="text-lg md:text-xl font-mono font-bold text-[#00ffc8]"
+                className="text-base md:text-lg font-mono font-bold text-[#00ffc8]"
                 animate={TEXT_GLOW_ANIMATION}
                 transition={{
                   duration: 2,
@@ -371,7 +426,7 @@ export function SynergyReactor() {
           className="absolute -bottom-12 md:-bottom-16 left-1/2 -translate-x-1/2 z-10 text-center px-4 w-full"
         >
           <motion.p
-            className="text-lg md:text-xl font-mono font-bold text-white max-w-3xl mx-auto leading-tight"
+            className="text-base md:text-lg font-mono font-bold text-white max-w-3xl mx-auto leading-tight"
             animate={{
               textShadow: [
                 "0 0 10px rgba(0, 255, 200, 0.3)",

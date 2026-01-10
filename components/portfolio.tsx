@@ -18,9 +18,9 @@ const projects = [
     featured: false,
     linksDisabled: false,
     links: {
-      x: "https://x.com/kardashevlabs",
-      website: "https://kardashevlabs.com",
-      video: "https://youtube.com",
+      x: "https://x.com/swarmOPS_",
+      website: "https://swarm-ops.vercel.app",
+      video: "https://youtu.be/iD1NM80Lqsg",
     },
   },
   {
@@ -90,10 +90,10 @@ export function Portfolio() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-10 md:mb-16 text-center md:text-left"
         >
           <motion.span
-            className="inline-block px-4 py-2 mb-4 text-xs font-mono font-semibold text-[#00ffc8]/70 tracking-widest border border-[#00ffc8]/20 rounded-full bg-[#00ffc8]/3 backdrop-blur-sm relative"
+            className="inline-block px-3 py-1.5 md:px-4 md:py-2 mb-3 md:mb-4 text-[10px] md:text-xs font-mono font-semibold text-[#00ffc8]/70 tracking-widest border border-[#00ffc8]/20 rounded-full bg-[#00ffc8]/3 backdrop-blur-sm relative"
             animate={{
               textShadow: [
                 "0 0 6px rgba(0, 255, 200, 0.2)",
@@ -114,10 +114,10 @@ export function Portfolio() {
           >
             ACHIEVEMENTS
           </motion.span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-2">
+          <h2 className="text-2xl md:text-5xl font-bold text-white mb-2">
             Core Modules
           </h2>
-          <p className="text-xs md:text-sm font-mono text-white/70 tracking-wide">
+          <p className="text-[10px] md:text-sm font-mono text-white/70 tracking-wide break-words">
             // SYSTEM_DESIGNATION: T1_AUTONOMOUS_PRIMITIVES
           </p>
         </motion.div>
