@@ -4,6 +4,7 @@ import { SynergyReactorSection } from "@/components/synergy-reactor-section";
 import { TeeWanScale } from "@/components/teewan-scale";
 import { Portfolio } from "@/components/portfolio";
 import { ResearchTerminal } from "@/components/research-terminal";
+import { MyBuildersSection } from "@/components/my-builders-section";
 import { Footer } from "@/components/footer";
 
 export default function Home() {
@@ -48,6 +49,7 @@ export default function Home() {
       {/* <TeeWanScale /> */}
       <Portfolio />
       <ResearchTerminal />
+      <MyBuildersSection />
       <Footer />
     </main>
   );
