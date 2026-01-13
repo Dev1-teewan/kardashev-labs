@@ -20,6 +20,7 @@ export function Navigation() {
     { label: "Operations", href: "#operations", sectionId: "operations" },
     { label: "Modules", href: "#modules", sectionId: "modules" },
     { label: "Terminal", href: "#terminal", sectionId: "terminal" },
+    { label: "Builders", href: "#my-builders", sectionId: "my-builders" },
   ];
 
   const handleNavClick = (
