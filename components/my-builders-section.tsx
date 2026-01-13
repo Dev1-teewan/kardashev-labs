@@ -3,10 +3,15 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 
-// Placeholder data for 6 images - using uniform style
-const builderImages = Array.from({ length: 6 }, (_, i) => ({
-  id: i + 1,
-}));
+// Builder images data
+const builderImages = [
+  { id: 1, src: "/builder-1.jpg" },
+  { id: 2, src: "/builder-2.jpg" },
+  { id: 3, src: "/builder-3.jpg" },
+  { id: 4, src: "/builder-4.jpg" },
+  { id: 5, src: "/builder-5.jpg" },
+  { id: 6, src: "/builder-6.jpg" },
+];
 
 export function MyBuildersSection() {
   return (
@@ -37,9 +42,10 @@ export function MyBuildersSection() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
             MY Builders
           </h2>
-          <p className="text-base md:text-lg text-white/70 max-w-2xl mx-auto">
-            A vibrant community of builders, designers, investors, developers,
-            students, and visionaries.
+          <p className="text-base md:text-lg text-white/70 max-w-2xl mx-auto mb-3">
+            As ecosystem builders and educators, we're dedicated to empowering
+            the <br />
+            next generation and giving back to our community.
           </p>
         </motion.div>
 
@@ -70,38 +76,53 @@ export function MyBuildersSection() {
                 whileHover={{ scale: 1.05, zIndex: 10 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
-                {/* Uniform Placeholder Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/[0.02]" />
+                {/* Actual Image or Placeholder */}
+                {image.src ? (
+                  <>
+                    <img
+                      src={image.src}
+                      alt={`Builder community image ${image.id}`}
+                      className="w-full h-full object-cover"
+                    />
+                    {/* Subtle overlay for better hover effect */}
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                  </>
+                ) : (
+                  <>
+                    {/* Uniform Placeholder Background */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/[0.02]" />
 
-                {/* Overlay Pattern */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.2)_100%)]" />
+                    {/* Overlay Pattern */}
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.2)_100%)]" />
+
+                    {/* Placeholder Content */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center p-3">
+                        <div className="w-10 h-10 mx-auto mb-2 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center opacity-50 group-hover:opacity-70 transition-opacity">
+                          <svg
+                            className="w-5 h-5 text-white/40"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
 
                 {/* Hover Glow Effect */}
                 <motion.div
                   className="absolute inset-0 border border-[#00ffc8]/0 group-hover:border-[#00ffc8]/30 transition-colors duration-300 rounded-lg"
                   initial={false}
                 />
-
-                {/* Placeholder Content */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-3">
-                    <div className="w-10 h-10 mx-auto mb-2 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center opacity-50 group-hover:opacity-70 transition-opacity">
-                      <svg
-                        className="w-5 h-5 text-white/40"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
 
                 {/* Subtle Glow on Hover */}
                 <motion.div
@@ -122,11 +143,14 @@ export function MyBuildersSection() {
           className="text-center"
         >
           <motion.a
-            href="#"
+            href="https://mybuilders.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 md:px-8 md:py-4 text-sm md:text-base font-semibold text-[#050505] bg-[#00ffc8] rounded-full hover:bg-[#00ffc8]/90 transition-all duration-300 group relative overflow-hidden shadow-lg shadow-[#00ffc8]/20"
-            whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(0, 255, 200, 0.4)" }}
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0 0 30px rgba(0, 255, 200, 0.4)",
+            }}
             whileTap={{ scale: 0.95 }}
           >
             <span className="relative z-10">Explore Community</span>
