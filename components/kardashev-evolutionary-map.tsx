@@ -8,7 +8,7 @@ import { EvolutionaryMapModal } from "./evolutionary-map-modal";
 const planetData = [
   {
     tier: "T0",
-    title: "T0: Primitive",
+    title: "T0: Local Mastery",
     description:
       "Current state. Human-driven coordination with limited automation. Humanity currently resides at T0.7—stagnant.",
     animation: "flickeringPlanet",
@@ -237,8 +237,8 @@ export function KardashevEvolutionaryMap() {
                           isCurrent
                             ? "bg-[#00ffc8]/40"
                             : isTarget
-                            ? "bg-[#00ffc8]/30"
-                            : "bg-white/20"
+                              ? "bg-[#00ffc8]/30"
+                              : "bg-white/20"
                         }`}
                         animate={
                           isCurrent
@@ -260,8 +260,8 @@ export function KardashevEvolutionaryMap() {
                           isCurrent
                             ? "border-[#00ffc8] bg-[#050505]"
                             : isTarget
-                            ? "border-[#00ffc8]/50 bg-[#050505]"
-                            : "border-white/30 bg-[#050505]"
+                              ? "border-[#00ffc8]/50 bg-[#050505]"
+                              : "border-white/30 bg-[#050505]"
                         }`}
                         whileHover={{
                           scale: 1.15,
@@ -281,8 +281,8 @@ export function KardashevEvolutionaryMap() {
                             isCurrent
                               ? "text-[#00ffc8]"
                               : isTarget
-                              ? "text-[#00ffc8]/80"
-                              : "text-white/60"
+                                ? "text-[#00ffc8]/80"
+                                : "text-white/60"
                           }`}
                         />
 
@@ -338,8 +338,8 @@ export function KardashevEvolutionaryMap() {
                           isCurrent
                             ? "text-[#00ffc8]"
                             : isTarget
-                            ? "text-[#00ffc8]/80"
-                            : "text-white/60"
+                              ? "text-[#00ffc8]/80"
+                              : "text-white/60"
                         }`}
                       >
                         {planet.tier}
@@ -349,8 +349,8 @@ export function KardashevEvolutionaryMap() {
                           isCurrent
                             ? "text-[#00ffc8]/80"
                             : isTarget
-                            ? "text-[#00ffc8]/60"
-                            : "text-white/50"
+                              ? "text-[#00ffc8]/60"
+                              : "text-white/50"
                         }`}
                       >
                         {planet.title.split(":")[1]?.trim() || planet.title}

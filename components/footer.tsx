@@ -16,7 +16,7 @@ export function Footer() {
             </div>
             <div className="flex flex-col">
               <span className="font-mono text-sm tracking-wider text-white/70">
-                Kardashev Labs
+                TypeOne Labs
               </span>
               <span className="font-mono text-[10px] tracking-wider text-white/50">
                 A Teewan Company

@@ -15,14 +15,14 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kardashev Labs",
+  title: "TypeOne Labs",
   description:
     "Autonomous agents, capital-efficient strategies, and coordination infrastructure for the Web3 frontier.",
   generator: "TeeWan Labs",
   icons: {
-    icon: "/logo-transparent.svg",
-    shortcut: "/logo-transparent.svg",
-    apple: "/logo-transparent.svg",
+    icon: "/logo1-transparent.png",
+    shortcut: "/logo1-transparent.png",
+    apple: "/logo1-transparent.png",
   },
 };
 

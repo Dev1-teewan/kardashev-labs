@@ -17,10 +17,10 @@ interface LogEntry {
 const parseLogLine = (
   line: string,
   baseTime: Date,
-  offsetSeconds: number
+  offsetSeconds: number,
 ): LogEntry | null => {
   const match = line.match(
-    /^(\d+)\s+\[(\d{2}):(\d{2}):(\d{2})\]\s+\[(\w+)\]\s+\[(\w+)\]\s+(.+)$/
+    /^(\d+)\s+\[(\d{2}):(\d{2}):(\d{2})\]\s+\[(\w+)\]\s+\[(\w+)\]\s+(.+)$/,
   );
   if (!match) return null;
 
@@ -168,7 +168,7 @@ export function ResearchTerminal() {
           hour: "2-digit",
           minute: "2-digit",
           second: "2-digit",
-        })
+        }),
       );
     };
     updateTime();
@@ -261,10 +261,10 @@ export function ResearchTerminal() {
               ease: "easeInOut",
             }}
           >
-            STRATEGY EXECUTION
+            Active Research Area
           </motion.span>
           <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Active Strategy Agent
+            Trading Strategy Agent
           </h2>
         </motion.div>
 
@@ -359,7 +359,7 @@ export function ResearchTerminal() {
                       {/* Status Badge (hidden on mobile) */}
                       <span
                         className={`font-mono text-[10px] px-1 md:px-1.5 py-0.5 rounded hidden md:block ${getLevelColor(
-                          log.level
+                          log.level,
                         )}`}
                       >
                         {log.level}
@@ -401,7 +401,7 @@ export function ResearchTerminal() {
             <div className="px-4 py-2 border-t border-white/5 bg-white/[0.01]">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-mono text-white/20">
-                  KARDASHEV_LABS::STRATEGY
+                  TYPEONE_LABS::STRATEGY
                 </span>
                 <span className="text-xs font-mono text-white/20">
                   UTC {currentTime}

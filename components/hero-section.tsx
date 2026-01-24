@@ -106,7 +106,7 @@ export function HeroSection() {
               We are here to help push humanity to a
             </p>
             <p className="text-xl md:text-2xl font-bold">
-              <span className="gradient-text">Tier-1</span>{" "}
+              <span className="gradient-text">Type-1</span>{" "}
               <span className="text-white">civilization</span>
             </p>
           </div>

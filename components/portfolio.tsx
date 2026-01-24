@@ -8,11 +8,11 @@ const projects = [
     id: 1,
     name: "Swarm Ops (Autonomous Agentic Layer)",
     specs: {
-      CORE: "Decentralized multi-agent coordination framework utilizing autonomous LLM.",
-      PROOF:
+      About:
+        "Decentralized multi-agent coordination framework utilizing autonomous LLM.",
+      Award:
         "EthDenver 2025 Coinbase's AgentKit Winner: Most Innovation Use Case.",
-      SCALE:
-        "High-frequency orchestration of complex, agentic on-chain interactions.",
+      INFO: "High-frequency orchestration of complex, agentic on-chain interactions.",
     },
     tags: ["AI_AGENTS", "ETHDENVER_WINNER", "AGENTIC_OPS"],
     featured: false,
@@ -27,10 +27,10 @@ const projects = [
     id: 2,
     name: "Dashy (Cluster Orchestration)",
     specs: {
-      CORE: "High-fidelity visual orchestration layer for cross-chain (SVM/EVM) wallet clusters.",
-      PROOF: "Solana Global Colosseum Awarded - Crypto Infrastructure Track.",
-      SCALE:
-        "Manage complex swarms while ensuring absolute cross-transaction isolation.",
+      About:
+        "High-fidelity visual orchestration layer for cross-chain (SVM/EVM) wallet clusters.",
+      Award: "Solana Global Colosseum Awarded - Crypto Infrastructure Track.",
+      INFO: "Manage complex swarms while ensuring absolute cross-transaction isolation.",
     },
     tags: ["WALLET_INFRA", "COLOSSEUM", "CLUSTER_SYNC"],
     featured: false,
@@ -45,11 +45,10 @@ const projects = [
     id: 3,
     name: "Gains (Delta-Neutral Primitive)",
     specs: {
-      CORE: "Automated funding-rate arbitrage via perpetual futures.",
-      PROOF:
+      About: "Automated funding-rate arbitrage via perpetual futures.",
+      Award:
         "24/7 Risk-neutralized execution with autonomous rebalancing and health management.",
-      SCALE:
-        "Monitor and deploy delta-neutral strategies across multiple protocols.",
+      INFO: "Monitor and deploy delta-neutral strategies across multiple protocols.",
     },
     tags: ["DEFI", "ARBITRAGE", "CAPITAL_EFFICIENCY"],
     featured: false,
@@ -64,11 +63,11 @@ const projects = [
     id: 4,
     name: "LUME (Liquidity Monitoring Engine)",
     specs: {
-      CORE: "Real-time state-monitoring primitive for cross-protocol  TVL tracking and LST staking.",
-      PROOF:
+      About:
+        "Real-time state-monitoring Local Mastery for cross-protocol  TVL tracking and LST staking.",
+      Award:
         "Verifiable on-chain telemetry for Solana LST deposits and protocol liquidity health.",
-      SCALE:
-        "Orchestrating global liquidity alerts to identify systemic asset inflows and outflows.",
+      INFO: "Orchestrating global liquidity alerts to identify systemic asset inflows and outflows.",
     },
     tags: ["FLOW_INTELLIGENCE", "STATE_MONITOR", "LST_ANALYTICS"],
     featured: false,
@@ -117,9 +116,6 @@ export function Portfolio() {
           <h2 className="text-2xl md:text-5xl font-bold text-white mb-2">
             Core Modules
           </h2>
-          <p className="text-[10px] md:text-sm font-mono text-white/70 tracking-wide break-words">
-            // SYSTEM_DESIGNATION: T1_AUTONOMOUS_PRIMITIVES
-          </p>
         </motion.div>
 
         {/* Bento Grid */}

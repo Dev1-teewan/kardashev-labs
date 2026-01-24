@@ -16,16 +16,16 @@ export function Navigation() {
   }, []);
 
   const navItems = [
-    { label: "Overview", href: "#overview", sectionId: "overview" },
-    { label: "Operations", href: "#operations", sectionId: "operations" },
-    { label: "Modules", href: "#modules", sectionId: "modules" },
-    { label: "Terminal", href: "#terminal", sectionId: "terminal" },
-    { label: "Builders", href: "#my-builders", sectionId: "my-builders" },
+    { label: "What", href: "#overview", sectionId: "overview" },
+    { label: "How", href: "#operations", sectionId: "operations" },
+    { label: "Products", href: "#modules", sectionId: "modules" },
+    { label: "Research", href: "#terminal", sectionId: "terminal" },
+    { label: "Community", href: "#my-builders", sectionId: "my-builders" },
   ];
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    sectionId: string
+    sectionId: string,
   ) => {
     e.preventDefault();
     const element = document.getElementById(sectionId);
@@ -57,7 +57,7 @@ export function Navigation() {
             </div>
             <div className="flex flex-col">
               <span className="font-mono text-sm tracking-wider text-white/90">
-                Kardashev Labs
+                TypeOne Labs
               </span>
               <span className="font-mono text-[10px] tracking-wider text-white/50">
                 A Teewan Company

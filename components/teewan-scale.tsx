@@ -106,7 +106,7 @@ export function TeeWanScale() {
                         className="mb-3 px-3 py-1 bg-[#00ffc8] rounded-full"
                       >
                         <span className="text-[8px] md:text-[10px] font-mono font-bold text-[#050505] tracking-wider whitespace-nowrap">
-                          KARDASHEV LABS
+                          TYPEONE LABS
                         </span>
                       </motion.div>
                     )}
@@ -119,8 +119,8 @@ export function TeeWanScale() {
                         isActive
                           ? "border-[#00ffc8] bg-[#0a0a0a]"
                           : isSelected
-                          ? "border-white/30 bg-[#0a0a0a]"
-                          : "border-white/10 bg-[#050505] hover:border-white/20"
+                            ? "border-white/30 bg-[#0a0a0a]"
+                            : "border-white/10 bg-[#050505] hover:border-white/20"
                       }`}
                     >
                       {/* Glow Effect for Active */}

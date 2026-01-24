@@ -38,7 +38,7 @@ export function SynergyReactorSection() {
               ease: "easeInOut",
             }}
           >
-            // OPERATION: SYSTEM_SYNTHESIS
+            Synthesizing The Two
           </motion.span>
         </motion.div>
 

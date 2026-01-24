@@ -9,7 +9,7 @@ const bezierPoint = (
   p0: number,
   p1: number,
   p2: number,
-  p3: number
+  p3: number,
 ) => {
   const mt = 1 - t;
   return (
@@ -25,7 +25,7 @@ const generateParticlePath = (
   p0: [number, number],
   p1: [number, number],
   p2: [number, number],
-  p3: [number, number]
+  p3: [number, number],
 ) => {
   return [0, 0.33, 0.67, 1.0].map((t) => ({
     x: bezierPoint(t, p0[0], p1[0], p2[0], p3[0]),
@@ -98,13 +98,13 @@ export function SynergyReactor() {
     [160, 480],
     [150, 360],
     [200, 260],
-    [360, 170] // Higher and more left
+    [360, 170], // Higher and more left
   );
   const blockchainPathMobile = generateParticlePath(
     [640, 480],
     [650, 360],
     [600, 260],
-    [440, 170] // Higher and more right
+    [440, 170], // Higher and more right
   );
 
   // Desktop paths - keep original
@@ -112,13 +112,13 @@ export function SynergyReactor() {
     [160, 480],
     [180, 360],
     [220, 260],
-    [350, 200]
+    [350, 200],
   );
   const blockchainPathDesktop = generateParticlePath(
     [640, 480],
     [620, 360],
     [580, 260],
-    [450, 200]
+    [450, 200],
   );
 
   return (
@@ -441,7 +441,7 @@ export function SynergyReactor() {
               ease: "easeInOut",
             }}
           >
-            Together, they empower people through transformative technology.
+            Together, we empower people through transformative technology.
           </motion.p>
         </motion.div>
       </div>
